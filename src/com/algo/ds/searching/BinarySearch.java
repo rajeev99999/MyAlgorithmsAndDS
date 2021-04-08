@@ -25,6 +25,50 @@ package com.algo.ds.searching;
         is 5 and it is at index 4. So, the
         output is 4.*/
 
+/*
+* Arrays.binarySearch() is the simplest and most efficient method to find an element in a sorted array in Java
+* public static int binarySearch(data_type arr, data_type key )
+* array can be byte int char float double
+*
+**/
+
+/*
+The Collections.binarySearch() method is a Collections class method in Java that returns position of an object in a sorted list.
+
+ ----Returns index of key in sorted list sorted in
+ -----ascending order
+public static int binarySearch(List slist, T key)
+
+ ----Returns index of key in sorted list sorted in
+-----order defined by Comparator c.
+public static int binarySearch(List slist, T key, Comparator c)
+
+If key is not present, the it returns "(-(insertion point) - 1)".
+The insertion point is defined as the point at which the key
+would be inserted into the list.
+
+The method throws ClassCastException if elements of list are not comparable using the specified comparator, or the search key is not comparable with the elements.
+
+    public static void main(String[] args)
+    {
+        List al = new ArrayList();
+        al.add(100);
+        al.add(50);
+        al.add(30);
+        al.add(10);
+        al.add(2);
+
+        // The last parameter specifies the comparator method
+        // used for sorting.
+        int index = Collections.binarySearch(al, 50,
+                                  Collections.reverseOrder());
+
+        System.out.println("Found at index " + index);
+    }
+
+ */
+
+
 import java.util.Arrays;
 
 public class BinarySearch {
@@ -51,6 +95,7 @@ public class BinarySearch {
     static int binarySearchRecursive(int [] arr, int X){
         int low =0;
         int high = arr.length - 1;
+        Arrays.sort(arr);
         int result = binarySearchRecursiveHelper(arr,low,high,X);
         return result;
     }
